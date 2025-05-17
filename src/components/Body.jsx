@@ -20,7 +20,6 @@ const Body = () => {
         withCredentials: true,
       });
       dispatch(addUser(response.data));
-      console.log(response);
     }catch(err){
       if(err.status === 401){
         navigate("/login");
