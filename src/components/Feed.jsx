@@ -5,17 +5,20 @@ import { useDispatch } from "react-redux";
 import { addFeed } from "../utils/feedSlice";
 import { useSelector } from "react-redux";
 import UserCard from "./UserCard";
+import useRequest from "../customHooks/useRequest";
 
 const Feed = () => {
   const dispatch = useDispatch();
+  useRequest();
   const feed = useSelector((state) => state.feed);
+  console.log(feed);
   const getFeed = async () => {
     try {
       if (feed.length > 0) return;
-      const res = await axios.get(BASE_URL + "/feed", {
+      const res = await axios.get(BASE_URL + "/user/feed", {
         withCredentials: true,
       });
-      dispatch(addFeed(res.data));
+      dispatch(addFeed(res.data.data));
     } catch (err) {
       console.log(err);
     }

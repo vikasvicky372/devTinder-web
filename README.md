@@ -18,3 +18,5 @@ introduced profile/view api in body component, so whenever body component loaded
 feed API added
 profile page added
 Connections page, API and connection card added
+requests page and review request API added
+send request or ignore card api added
