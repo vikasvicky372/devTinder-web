@@ -1,12 +1,12 @@
-import React from "react";
+import React, { useState } from "react";
 import axios from "axios";
 import { useDispatch } from "react-redux";
 import { addUser } from "../utils/userSlice";
 import { BASE_URL } from "../utils/constants";
 import { useNavigate } from "react-router-dom";
 const Login = () => {
-  const [email, setEmail] = React.useState("vikas@gmail.com");
-  const [password, setPassword] = React.useState("Vikas@2000");
+  const [email, setEmail] = useState("vikas@gmail.com");
+  const [password, setPassword] = useState("Vikas@2000");
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const handleLogin = async () => {

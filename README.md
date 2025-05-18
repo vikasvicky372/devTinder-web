@@ -15,3 +15,6 @@ added withcredentials:true for to store the cookies
 added redux store and created appStore and userSlice
 implemented login functionality and stored user details  in appStore
 introduced profile/view api in body component, so whenever body component loaded, it'll get the details. if the token is not valid. It'll navigate to the login page
+feed API added
+profile page added
+Connections page, API and connection card added
