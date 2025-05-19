@@ -21,9 +21,9 @@ const NavBar = () => {
     }
   };
   return (
-    <div className="navbar bg-base-300 shadow-sm">
+    <div className="navbar bg-base-300 shadow-sm fixed top-0 z-10">
       <div className="flex-1">
-        <Link to="/" className="btn btn-ghost hover:bg-info-content text-xl">
+        <Link to="/feed" className="btn btn-ghost hover:bg-info-content text-xl">
           👨‍💻 devTinder
         </Link>
       </div>
@@ -37,7 +37,7 @@ const NavBar = () => {
               className="btn btn-ghost btn-circle avatar"
             >
               <div className="w-10 rounded-full">
-                <img alt="Tailwind CSS Navbar component" src={user.photoURL} />
+                <img className="object-fill" alt="Tailwind CSS Navbar component" src={user.photoURL} />
               </div>
             </div>
             <ul
@@ -49,6 +49,9 @@ const NavBar = () => {
                   Profile
                   <span className="badge">New</span>
                 </Link>
+              </li>
+              <li>
+                <Link to="/feed">Dashboard</Link>
               </li>
               <li>
                 <Link to="/connections">Connections</Link>

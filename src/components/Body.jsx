@@ -33,7 +33,7 @@ const Body = () => {
     }
   }, [])
   return (
-    <div>
+    <div className="bg-[url('/images/backGround.png')] bg-fixed bg-center bg-repeat w-full">
         <NavBar/>
         <Outlet/>
         <Footer/>

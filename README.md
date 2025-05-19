@@ -20,3 +20,4 @@ profile page added
 Connections page, API and connection card added
 requests page and review request API added
 send request or ignore card api added
+profile update api is added and signup api is added

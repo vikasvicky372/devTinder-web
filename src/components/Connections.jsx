@@ -26,7 +26,7 @@ const Connections = () => {
   return !connections || connections.length <= 0 ? (
     <EmptyConnections />
   ) : (
-    <div>
+    <div className="h-screen">
       {connections.map((connection) => (
         <ConnectionCard key={connection._id} connection={connection} />
       ))}
@@ -36,7 +36,7 @@ const Connections = () => {
 
 const EmptyConnections = () => {
   return (
-    <div className="hero bg-base-200 min-h-screen">
+    <div className="hero h-screen">
       <div className="hero-content text-center">
         <div className="max-w-md">
           <h1 className="text-5xl font-bold">No Connections 🥺</h1>
