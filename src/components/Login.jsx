@@ -10,29 +10,42 @@ const Login = () => {
   const [isLoginform, setIsLoginForm] = useState(true);
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
+  const [error, setError] = useState(null);
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const handleSignUp = async () => {
-    const res = await axios.post(BASE_URL+"/signup", {
-      firstName,
-      lastName,
-      emailId: email,
-      password
-    },{withCredentials:true});
+    const res = await axios.post(
+      BASE_URL + "/signup",
+      {
+        firstName,
+        lastName,
+        emailId: email,
+        password,
+      },
+      { withCredentials: true }
+    );
     dispatch(addUser(res.data.data));
     return navigate("/profile");
   };
   const handleLogin = async () => {
-    const res = await axios.post(
-      BASE_URL + "/login",
-      {
-        emailId: email,
-        password: password,
-      },
-      { withCredentials: true }
-    );
-    dispatch(addUser(res.data.user));
-    return navigate("/feed");
+    try {
+      const res = await axios.post(
+        BASE_URL + "/login",
+        {
+          emailId: email,
+          password: password,
+        },
+        { withCredentials: true }
+      );
+      dispatch(addUser(res.data.user));
+      return navigate("/feed");
+    } catch (err) {
+      if (err.response.status === 401) {
+        setError(err.response.data.message);
+      } else if (err.response.status === 500) {
+        setError("Internal Server Error");
+      }
+    }
   };
   return (
     <div className="flex justify-center items-center my-10 h-screen">
@@ -52,6 +65,7 @@ const Login = () => {
                   value={firstName}
                   onChange={(e) => {
                     setFirstName(e.target.value);
+                    setError(null);
                   }}
                 />
                 <legend className="fieldset-legend">Last Name</legend>
@@ -62,6 +76,7 @@ const Login = () => {
                   value={lastName}
                   onChange={(e) => {
                     setLastName(e.target.value);
+                    setError(null);
                   }}
                 />
               </>
@@ -89,13 +104,17 @@ const Login = () => {
                 placeholder="mail@site.com"
                 required
                 value={email}
-                onChange={(e) => setEmail(e.currentTarget.value)}
+                onChange={(e) => {
+                  setEmail(e.currentTarget.value);
+                  setError(null);
+                }}
               />
             </label>
-            <legend className="fieldset-legend">Password</legend>
             <div className="validator-hint hidden">
               Enter valid email address
             </div>
+            <legend className="fieldset-legend">Password</legend>
+
             <label className="input validator">
               <svg
                 className="h-[1em] opacity-50"
@@ -123,26 +142,39 @@ const Login = () => {
                 required
                 placeholder="Password"
                 value={password}
-                onChange={(e) => setPassword(e.currentTarget.value)}
+                onChange={(e) => {
+                  setPassword(e.currentTarget.value);
+                  setError(null);
+                }}
               />
             </label>
+            {error && <p className="text-red-500 text-sm mt-2">{error}</p>}
           </fieldset>
           <div className="card-actions justify-center">
             <button
               className="btn btn-primary"
               onClick={() => {
-                isLoginform?handleLogin():handleSignUp();
+                isLoginform ? handleLogin() : handleSignUp();
               }}
             >
               {isLoginform ? "Login" : "SignUp"}
             </button>
           </div>
           <div className="flex justify-center my-2">
-              {isLoginform ? "Don't have an account? " : "Already have an account? "}
-            <span className="cursor-pointer text-blue-500 underline ml-2" onClick={() => {setIsLoginForm(value => !value);
+            {isLoginform
+              ? "Don't have an account? "
+              : "Already have an account? "}
+            <span
+              className="cursor-pointer text-blue-500 underline ml-2"
+              onClick={() => {
+                setIsLoginForm((value) => !value);
                 setIsLoginForm(!isLoginform);
-              }}>{isLoginform?"SignUp":"Login"}</span>
-            </div>
+                setError(null);
+              }}
+            >
+              {isLoginform ? "SignUp" : "Login"}
+            </span>
+          </div>
         </div>
       </div>
     </div>
