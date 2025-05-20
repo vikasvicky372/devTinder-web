@@ -38,7 +38,7 @@ const Login = () => {
         { withCredentials: true }
       );
       dispatch(addUser(res.data.user));
-      return navigate("/feed");
+      return navigate("/");
     } catch (err) {
       if (err.response.status === 401) {
         setError(err.response.data.message);
