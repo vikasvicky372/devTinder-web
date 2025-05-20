@@ -51,10 +51,10 @@ const NavBar = () => {
                 </Link>
               </li>
               <li>
-                <Link to="/feed">Dashboard</Link>
+                <Link to="/">Dashboard</Link>
               </li>
               <li>
-                <Link to="/">Connections</Link>
+                <Link to="/connections">Connections</Link>
               </li>
               <li>
                 <Link to="/requests">Requests
