@@ -20,7 +20,6 @@ const Body = () => {
         withCredentials: true,
       });
       dispatch(addUser(response.data));
-      return navigate("/");
     }catch(err){
       if(err.status === 401){
         navigate("/login");
@@ -34,7 +33,7 @@ const Body = () => {
     }
   }, [])
   return (
-    <div className="bg-[url('/images/backGround.png')] bg-fixed bg-center bg-repeat w-full">
+    <div className="bg-[url('/images/backGround.png')] bg-fixed bg-center bg-repeat w-full pt-16 min-h-screen">
         <NavBar/>
         <Outlet/>
         <Footer/>
