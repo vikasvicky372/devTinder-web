@@ -70,19 +70,20 @@ const UserCard = ({ user }) => {
     <motion.div
       {...bind()}
       animate={controls}
-      className="card bg-base-300 w-80 shadow-sm h-126 my-auto touch-none cursor-grab"
+      className="card bg-base-300 w-60 sm:w-70 shadow-sm h-120 my-auto touch-none cursor-grab"
       style={{ touchAction: "none" }}
     >
       <figure className="h-7/12">
         <img className="h-full w-full object-fill" src={photoURL} alt="Shoes" />
+      
       </figure>
       <div className="card-body h-5/12">
         <h2 className="card-title">{firstName + " " + lastName}</h2>
         {age && gender && <p>{age + ", " + gender}</p>}
         <p>{bio}</p>
-        <div className="card-actions justify-center">
+        <div className="card-actions flex flex-row justify-between">
           <button
-            className="btn btn-primary mx-5"
+            className="btn btn-primary "
             onClick={() => {
               ignoreOrInterested("ignored", _id);
             }}
@@ -90,7 +91,7 @@ const UserCard = ({ user }) => {
             Ignore
           </button>
           <button
-            className="btn btn-secondary mx-5"
+            className="btn btn-secondary "
             onClick={() => {
               ignoreOrInterested("interested", _id);
             }}

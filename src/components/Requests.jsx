@@ -10,11 +10,12 @@ const Requests = () => {
   return requests.length <= 0 ? (
     <EmptyRequests />
   ) : (
-    <div className="h-screen py-10">
-      {requests.map((request) => (
-        <RequestCard key={request._id} request={request} />
-      ))}
-    </div>
+    <div className="min-h-screen py-10 px-4 flex flex-col items-center gap-6">
+  {requests.map((request) => (
+    <RequestCard key={request._id} request={request} />
+  ))}
+</div>
+
   );
 };
 

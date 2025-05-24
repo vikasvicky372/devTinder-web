@@ -48,7 +48,7 @@ const RequestCard = ({ request }) => {
           <span>{rejectMsg}</span>
         </div>
       )}
-      <div className="card card-side bg-base-300 shadow-sm h-40 w-9/12 mx-auto my-10">
+      <div className="card card-side bg-base-300 shadow-sm sm:h-40 sm:w-9/12 mx-auto my-10">
         <div className="card-body">
           <h2 className="card-title">{firstName + " " + lastName}</h2>
           {age && <span>{age},</span>}

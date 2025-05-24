@@ -26,7 +26,7 @@ const Connections = () => {
   return !connections || connections.length <= 0 ? (
     <EmptyConnections />
   ) : (
-    <div className="h-screen py-10">
+    <div className="h-screen">
       {connections.map((connection) => (
         <ConnectionCard key={connection._id} connection={connection} />
       ))}

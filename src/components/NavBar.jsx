@@ -24,13 +24,13 @@ const NavBar = () => {
     <div className="navbar bg-base-300 shadow-sm fixed top-0 z-10">
       <div className="flex-1">
         <Link to="/feed" className="btn btn-ghost hover:bg-info-content text-xl">
-          👨‍💻 devTinder
+          👨‍💻 devConnect
         </Link>
       </div>
       {user && (
-        <div className="flex gap-2">
+        <div className="flex gap-1 items-center">
           Welcome, {user.firstName}
-          <div className="dropdown dropdown-end mx-5">
+          <div className="dropdown dropdown-end ml-2 mr-5">
             <div
               tabIndex={0}
               role="button"
