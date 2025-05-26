@@ -42,6 +42,8 @@ const Login = () => {
     } catch (err) {
       if (err.response.status === 401) {
         setError(err.response.data.message);
+      } else if (err.response.status === 400) {
+        setError(err.response.data);
       } else if (err.response.status === 500) {
         setError("Internal Server Error");
       }

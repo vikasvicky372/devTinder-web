@@ -70,7 +70,7 @@ const UserCard = ({ user }) => {
     <motion.div
       {...bind()}
       animate={controls}
-      className="card bg-base-300 w-60 sm:w-70 shadow-sm h-120 my-auto touch-none cursor-grab"
+      className="card bg-base-300 w-60 sm:w-70 shadow-sm h-120 my-auto touch-none cursor-grab mx-auto"
       style={{ touchAction: "none" }}
     >
       <figure className="h-7/12">

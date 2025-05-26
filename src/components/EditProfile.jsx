@@ -74,157 +74,160 @@ const EditProfile = ({ user }) => {
   return (
     <>
       {success && (
-        <div className="alert alert-success w-4/12 mx-auto my-10">
+        <div className="alert alert-success w-11/12 sm:w-8/12 md:w-6/12 lg:w-4/12 mx-auto my-6 z-10">
           <span>{success}</span>
         </div>
       )}
-      <div className="flex flex-row justify-evenly items-center ">
-        <div className="flex justify-center items-center my-20">
-          <div className="card card-dash bg-base-300 w-96">
+
+      <div className="flex flex-col lg:flex-row justify-center items-stretch lg:items-start gap-6 px-4 py-6">
+        {/* Profile Form */}
+        <div className="w-full lg:w-1/2 flex justify-center">
+          <div className="card bg-base-300 w-full max-w-md">
             <div className="card-body">
               <h2 className="card-title justify-center">Profile Details</h2>
-              <fieldset className="fieldset">
-                <legend className="fieldset-legend">Email</legend>
-                <input
-                  value={emailId}
-                  onChange={(e) => {
-                    setEmailId(e.target.value);
-                  }}
-                  type="text"
-                  placeholder="You can't touch this"
-                  className="input"
-                  disabled
-                />
-                <legend className="fieldset-legend">First Name</legend>
-                <input
-                  type="text"
-                  value={firstName}
-                  onChange={(e) => {
-                    setFirstName(e.target.value);
-                  }}
-                  className="input"
-                  placeholder="Type here"
-                />
-                <legend className="fieldset-legend">Last Name</legend>
-                <input
-                  type="text"
-                  value={lastName}
-                  onChange={(e) => {
-                    setLastName(e.target.value);
-                  }}
-                  className="input"
-                  placeholder="Type here"
-                />
-                <legend className="fieldset-legend">Age</legend>
-                <input
-                  type="number"
-                  value={age}
-                  min={18}
-                  onChange={(e) => {
-                    setAge(e.target.value);
-                  }}
-                  className="input"
-                  placeholder="age must be 18+"
-                />
-                <legend className="fieldset-legend">gender</legend>
-                <select
-                  value={gender}
-                  onChange={(e) => {
-                    setGender(e.target.value);
-                    console.log(e.target.value); // Log the new value
-                  }}
-                  className="select"
-                >
-                  <option value="" disabled>
-                    Select a gender
-                  </option>
-                  <option value="male">Male</option>
-                  <option value="female">Female</option>
-                  <option value="other">Other</option>
-                </select>
-                <legend className="fieldset-legend">Phone Number</legend>
-                <label className="input validator">
-                  <svg
-                    className="h-[1em] opacity-50"
-                    xmlns="http://www.w3.org/2000/svg"
-                    viewBox="0 0 16 16"
-                  >
-                    <g fill="none">
-                      <path
-                        d="M7.25 11.5C6.83579 11.5 6.5 11.8358 6.5 12.25C6.5 12.6642 6.83579 13 7.25 13H8.75C9.16421 13 9.5 12.6642 9.5 12.25C9.5 11.8358 9.16421 11.5 8.75 11.5H7.25Z"
-                        fill="currentColor"
-                      ></path>
-                      <path
-                        fillRule="evenodd"
-                        clipRule="evenodd"
-                        d="M6 1C4.61929 1 3.5 2.11929 3.5 3.5V12.5C3.5 13.8807 4.61929 15 6 15H10C11.3807 15 12.5 13.8807 12.5 12.5V3.5C12.5 2.11929 11.3807 1 10 1H6ZM10 2.5H9.5V3C9.5 3.27614 9.27614 3.5 9 3.5H7C6.72386 3.5 6.5 3.27614 6.5 3V2.5H6C5.44771 2.5 5 2.94772 5 3.5V12.5C5 13.0523 5.44772 13.5 6 13.5H10C10.5523 13.5 11 13.0523 11 12.5V3.5C11 2.94772 10.5523 2.5 10 2.5Z"
-                        fill="currentColor"
-                      ></path>
-                    </g>
-                  </svg>
+              <fieldset className="fieldset space-y-4">
+                {/* Email */}
+                <div>
+                  <legend className="fieldset-legend">Email</legend>
                   <input
-                    type="tel"
-                    className="tabular-nums"
-                    required
-                    value={phoneNumber}
-                    onChange={(e) => {
-                      setPhoneNumber(e.target.value);
-                    }}
-                    placeholder="Phone"
-                    pattern="[0-9]*"
-                    minLength="10"
-                    maxLength="10"
-                    title="Must be 10 digits"
+                    value={emailId}
+                    onChange={(e) => setEmailId(e.target.value)}
+                    type="text"
+                    className="input w-full"
+                    disabled
                   />
-                </label>
-                <legend className="fieldset-legend">Photo URL</legend>
-                <input
-                  type="url"
-                  value={photoURL}
-                  onChange={(e) => {
-                    setPhotoURL(e.target.value);
-                  }}
-                  className="input"
-                  placeholder="Type here"
-                />
-                <legend className="fieldset-legend">Your bio</legend>
-                <textarea
-                  value={bio}
-                  onChange={(e) => {
-                    setBio(e.target.value);
-                  }}
-                  className="textarea h-24"
-                  placeholder="Bio"
-                ></textarea>
+                </div>
+
+                {/* First Name */}
+                <div>
+                  <legend className="fieldset-legend">First Name</legend>
+                  <input
+                    type="text"
+                    value={firstName}
+                    onChange={(e) => setFirstName(e.target.value)}
+                    className="input w-full"
+                  />
+                </div>
+
+                {/* Last Name */}
+                <div>
+                  <legend className="fieldset-legend">Last Name</legend>
+                  <input
+                    type="text"
+                    value={lastName}
+                    onChange={(e) => setLastName(e.target.value)}
+                    className="input w-full"
+                  />
+                </div>
+
+                {/* Age */}
+                <div>
+                  <legend className="fieldset-legend">Age</legend>
+                  <input
+                    type="number"
+                    value={age}
+                    min={18}
+                    onChange={(e) => setAge(e.target.value)}
+                    className="input w-full"
+                  />
+                </div>
+
+                {/* Gender */}
+                <div>
+                  <legend className="fieldset-legend">Gender</legend>
+                  <select
+                    value={gender}
+                    onChange={(e) => setGender(e.target.value)}
+                    className="select w-full"
+                  >
+                    <option value="" disabled>
+                      Select a gender
+                    </option>
+                    <option value="male">Male</option>
+                    <option value="female">Female</option>
+                    <option value="other">Other</option>
+                  </select>
+                </div>
+
+                {/* Phone Number */}
+                <div>
+                  <legend className="fieldset-legend">Phone Number</legend>
+                  <label className="input flex items-center gap-2">
+                    <svg
+                      className="h-4 opacity-50"
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 16 16"
+                    >
+                      <g fill="none">
+                        <path d="M7.25 11.5..." fill="currentColor" />
+                        <path d="M6 1C..." fill="currentColor" />
+                      </g>
+                    </svg>
+                    <input
+                      type="tel"
+                      className="w-full tabular-nums"
+                      required
+                      value={phoneNumber}
+                      onChange={(e) => setPhoneNumber(e.target.value)}
+                      placeholder="Phone"
+                      pattern="[0-9]*"
+                      minLength="10"
+                      maxLength="10"
+                      title="Must be 10 digits"
+                    />
+                  </label>
+                </div>
+
+                {/* Photo URL */}
+                <div>
+                  <legend className="fieldset-legend">Photo URL</legend>
+                  <input
+                    type="url"
+                    value={photoURL}
+                    onChange={(e) => setPhotoURL(e.target.value)}
+                    className="input w-full"
+                  />
+                </div>
+
+                {/* Bio */}
+                <div>
+                  <legend className="fieldset-legend">Your bio</legend>
+                  <textarea
+                    value={bio}
+                    onChange={(e) => setBio(e.target.value)}
+                    className="textarea w-full h-24"
+                    placeholder="Bio"
+                  ></textarea>
+                </div>
               </fieldset>
-              <div className="card-actions justify-center">
-                <button
-                  className="btn btn-primary"
-                  onClick={() => {
-                    handleEditProfile();
-                  }}
-                >
+
+              <div className="card-actions justify-center mt-4">
+                <button className="btn btn-primary" onClick={handleEditProfile}>
                   Update Profile
                 </button>
               </div>
             </div>
           </div>
         </div>
-        <div>
-          <h2 className="card-title justify-center mb-2">
-            Check Your Chages here
-          </h2>
-          <UserCard
-            user={{
-              firstName,
-              lastName,
-              age,
-              gender,
-              phoneNumber,
-              photoURL,
-              bio,
-            }}
-          />
+
+        {/* User Preview Card */}
+        <div className="w-full lg:w-1/2 flex justify-center">
+          <div className="max-w-md w-full text-center">
+            <h2 className="card-title justify-center mb-4">
+              Check Your Changes Here
+            </h2>
+            <UserCard
+              user={{
+                firstName,
+                lastName,
+                age,
+                gender,
+                phoneNumber,
+                photoURL,
+                bio,
+              }}
+            />
+          </div>
         </div>
       </div>
     </>

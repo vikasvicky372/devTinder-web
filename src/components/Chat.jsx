@@ -89,7 +89,7 @@ const Chat = () => {
     });
 
     return () => {
-      socket.disconnect();
+      socket.emit("custom_disconnect",{userId:fromUserId});
     };
   }, [fromUserId, targetUserId]);
   return (
