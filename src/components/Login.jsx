@@ -14,6 +14,19 @@ const Login = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const handleSignUp = async () => {
+    if(!firstName || firstName.length < 4) {
+      setError("First name must be at least 4 characters long");
+      return;
+    } else if(!lastName || lastName.length < 4) {
+      setError("Last name must be at least 4 characters long");
+      return;
+    } else if(!email || !email.includes("@")) {
+      setError("Please enter a valid email");
+      return;
+      } else if(!password || password.length < 6) {
+      setError("Please enter a valid password (minimum 6 characters)");
+      return;
+    }
     const res = await axios.post(
       BASE_URL + "/signup",
       {
