@@ -44,7 +44,7 @@ const EmptyConnections = () => {
             You have no connections yet. Connect with other developers to get
             started.
           </p>
-          <button className="btn btn-primary"><Link to="/feed">Get Start Connected</Link></button>
+          <button className="btn btn-primary"><Link to="/">Get Start Connected</Link></button>
         </div>
       </div>
     </div>

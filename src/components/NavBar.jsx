@@ -23,7 +23,7 @@ const NavBar = () => {
   return (
     <div className="navbar bg-base-300 shadow-sm fixed top-0 z-10">
       <div className="flex-1">
-        <Link to="/feed" className="btn btn-ghost hover:bg-info-content text-xl">
+        <Link to="/" className="btn btn-ghost hover:bg-info-content text-xl">
           👨‍💻 devConnect
         </Link>
       </div>
